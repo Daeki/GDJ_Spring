@@ -1,5 +1,8 @@
 package com.winter.app.ioc;
 
+import org.springframework.stereotype.Component;
+
+
 public class RightArm extends Arm{
 
 	@Override

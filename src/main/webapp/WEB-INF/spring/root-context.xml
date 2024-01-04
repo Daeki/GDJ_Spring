@@ -4,5 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 객체 생성, 주입 -->
+	<!-- 클래스명 변수명 = new 생성자() -->
+	<bean class="com.winter.app.ioc.LeftArm" id="leftArm"></bean>
+	<bean class="com.winter.app.ioc.RightArm" id="rightArm"></bean>
+	<bean class="com.winter.app.ioc.Robot" id="robot">
+		<constructor-arg name="leftArm" ref="leftArm"></constructor-arg>
+		<constructor-arg name="rightArm" ref="rightArm"></constructor-arg>
+		<!-- setter Name-->
+		<!-- setLeftArm() -->
+		<property name="leftArm" ref="leftArm"></property>
+		<property name="rightArm" ref="rightArm"></property>
+	</bean>
+	
 		
 </beans>

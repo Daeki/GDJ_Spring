@@ -2,7 +2,7 @@ package com.winter.app.ioc;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class LeftArm extends Arm {
 
 	@Override
