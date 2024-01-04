@@ -9,7 +9,7 @@
 	<!-- detail -->
 	<!-- id는 DAO의 메서드명 -->
 	<select id="getDetail" resultType="com.winter.app.regions.RegionDTO" parameterType="com.winter.app.regions.RegionDTO">
-		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}
+		SELECT REGION_ID, REGION_NAME FROM REGIONS WHERE REGION_ID=#{region_id}
 	</select>
 	
 	<!-- list -->
