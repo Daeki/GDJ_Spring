@@ -42,20 +42,7 @@ public class RegionDAO {
 	
 	//Insert
 	public int add(RegionDTO regionDTO)throws Exception{
-		Connection con = DBConnector.getConnector();
-		
-		String sql = "INSERT INTO REGIONS VALUES(?, ?)";
-		
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		st.setInt(1, regionDTO.getRegion_id());
-		st.setString(2, regionDTO.getRegion_name());
-		
-		int result = st.executeUpdate();
-		
-		DBConnector.disConnect(st, con);
-		
-		return result;
+		return sqlSession.insert(namespace+"add", regionDTO);
 	}
 	
 	//detail
@@ -66,5 +53,13 @@ public class RegionDAO {
 	public List<RegionDTO> getList() throws Exception {
 		return sqlSession.selectList(namespace+"getList");
 	}
+	
+//	public HashMap<String, Object> getDetail(RegionDTO regionDTO)throws Exception{
+//		return sqlSession.selectOne(namespace+"getDetail", regionDTO);
+//	}
+//	
+//	public List<HashMap<String, Object>> getList() throws Exception {
+//		return sqlSession.selectList(namespace+"getList");
+//	}
 
 }

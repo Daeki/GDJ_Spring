@@ -6,16 +6,45 @@
 <!-- namespace의 값은 중복 X -->
 <!-- 해당 mapper를 사용할 DAO의 풀패키지명으로 작성 -->  
 <mapper namespace="com.winter.app.regions.RegionDAO">
+	
+	<!-- Delete -->
+	<delete id="delete" parameterType="RegionDTO">
+		DELETE REGIONS WHERE REGION_ID=#{region_id}
+	</delete>
+	
+	<!-- update -->
+	<update id="update" parameterType="RegionDTO">
+		UPDATE REGIONS SET REGION_NAME=#{region_name}
+		WHERE REGION_ID=#{region_id}
+	</update>
+	
+	<!-- Insert -->
+	<insert id="add" parameterType="RegionDTO">
+		INSERT INTO REGIONS
+		VALUES (EMPLOYEES_SEQ.NEXTVAL, #{region_name})
+	</insert>
+	
+
+
 	<!-- detail -->
 	<!-- id는 DAO의 메서드명 -->
-	<select id="getDetail" resultType="com.winter.app.regions.RegionDTO" parameterType="com.winter.app.regions.RegionDTO">
+	<select id="getDetail" resultType="RegionDTO" parameterType="RegionDTO">
 		SELECT REGION_ID, REGION_NAME FROM REGIONS WHERE REGION_ID=#{region_id}
 	</select>
 	
 	<!-- list -->
-	<select id="getList" resultType="com.winter.app.regions.RegionDTO">
+	<select id="getList" resultType="RegionDTO">
 		SELECT * FROM REGIONS
 	</select>
+	
+<!-- <select id="getDetail" resultType="java.util.HashMap" parameterType="com.winter.app.regions.RegionDTO">
+		SELECT REGION_ID, REGION_NAME FROM REGIONS WHERE REGION_ID=#{region_id}
+	</select>
+	
+	list
+	<select id="getList" resultType="java.util.HashMap">
+		SELECT * FROM REGIONS
+	</select> -->
 	
 	
 

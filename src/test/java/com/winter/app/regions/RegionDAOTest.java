@@ -15,6 +15,18 @@ public class RegionDAOTest extends MyTest {
 	private RegionDAO regionDAO;
 	
 	@Test
+	public void addTest()throws Exception{
+		RegionDTO regionDTO = new RegionDTO();
+		
+		regionDTO.setRegion_name("Test");
+		int result = regionDAO.add(regionDTO);
+		
+		assertEquals(1, result);
+		
+		
+	}
+	
+	@Test
 	public void getListTest()throws Exception{
 		List<RegionDTO> ar = regionDAO.getList();
 		assertEquals(0, ar.size());

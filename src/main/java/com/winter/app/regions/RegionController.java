@@ -26,6 +26,7 @@ public class RegionController {
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String add(RegionDTO regionDTO, Model model) throws Exception {
+		int result = regionService.add(regionDTO);
 //		String id = request.getParameter("region_id");
 //		String name = request.getParameter("region_name");
 //		
@@ -35,13 +36,13 @@ public class RegionController {
 		
 //		int result = this.regionDAO.add(regionDTO);
 //		
-//		String msg="등록 실패";
-//		if(result>0) {
-//			msg = "등록 성공";
-//		}
-//		
-//		model.addAttribute("msg", msg);
-//		model.addAttribute("path", "./list");
+		String msg="등록 실패";
+		if(result>0) {
+			msg = "등록 성공";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("path", "./list");
 		
 		return "commons/result";
 	}
@@ -58,13 +59,13 @@ public class RegionController {
 	//id
 	public String detail(Integer region_id, Model model)throws Exception{
 		
-		RegionDAO regionDAO = new RegionDAO();
+		
 		RegionDTO regionDTO = new RegionDTO();
 		//String id = request.getParameter("region_id");
 		
 		regionDTO.setRegion_id(region_id);
 		
-		regionDTO = regionDAO.getDetail(regionDTO);
+		regionDTO = regionService.getDetail(regionDTO);
 		
 		//request.setAttribute("dto", regionDTO);
 		model.addAttribute("dto", regionDTO);
