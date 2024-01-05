@@ -19,9 +19,42 @@ public class RegionController {
 	@Autowired
 	private RegionService regionService;
 	
-//	public RegionController() {
-//		this.regionDAO = new RegionDAO();
-//	}
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public ModelAndView update(RegionDTO regionDTO, ModelAndView mv)throws Exception{
+		
+		int result = regionService.update(regionDTO);
+		
+		String message="수정 실패";
+		if(result>0) {
+			message="수정 성공";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("path", "./list");
+		
+		mv.setViewName("commons/result");
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public void update(RegionDTO regionDTO, Model model)throws Exception{
+		regionDTO = regionService.getDetail(regionDTO);
+		model.addAttribute("dto", regionDTO);
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(RegionDTO regionDTO, Model model)throws Exception{
+		int result = regionService.delete(regionDTO);
+		String message="삭제 실패";
+		if(result>0) {
+			message="삭제 성공";
+		}
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./list");
+		
+		return "commons/result";
+	}
 	
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
