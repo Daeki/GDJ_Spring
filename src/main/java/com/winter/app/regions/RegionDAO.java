@@ -20,23 +20,18 @@ public class RegionDAO {
 	private SqlSession sqlSession;
 	private final String namespace="com.winter.app.regions.RegionDAO.";
 	
+
+	//delete
+	public int delete(RegionDTO regionDTO) throws Exception {
+
+		return sqlSession.delete(namespace+"delete", regionDTO);
+		
+	}	
 	
 	//update
 	public int update(RegionDTO regionDTO) throws Exception {
-		Connection con = DBConnector.getConnector();
-		
-		String sql="UPDATE REGIONS SET REGION_NAME=? WHERE REGION_ID=?";
-		
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		st.setString(1, regionDTO.getRegion_name());
-		st.setInt(2, regionDTO.getRegion_id());
-		
-		int result = st.executeUpdate();
-		
-		DBConnector.disConnect(st, con);
-		
-		return result;
+
+		return sqlSession.update(namespace+"update", regionDTO);
 		
 	}
 	

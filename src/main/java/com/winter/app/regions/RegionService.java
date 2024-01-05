@@ -14,7 +14,7 @@ public class RegionService {
 	
 	//delete
 	public int delete(RegionDTO regionDTO)throws Exception{
-		return 0;
+		return regionDAO.delete(regionDTO);
 	} 
 	
 	
