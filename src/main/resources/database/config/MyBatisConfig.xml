@@ -6,6 +6,7 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.winter.app.regions.RegionDTO" alias="RegionDTO"/>
+  		<typeAlias type="com.winter.app.util.Pager" alias="Pager"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
   	
