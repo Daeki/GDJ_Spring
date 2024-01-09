@@ -66,18 +66,18 @@
 		  <ul class="pagination">
 		  	<c:if test="${!pager.start}">
 		    <li class="page-item">
-		      <a class="page-link" href="./list?page=${pager.startNum-1}&search=${pager.search}" aria-label="Previous">
+		      <a class="page-link" href="./list?page=${pager.startNum-1}&search=${pager.search}&kind=${pager.kind}" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>
 		      </a>
 		    </li>
 		    </c:if>
 		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		    <li class="page-item"><a class="page-link" href="./list?page=${i}&search=${pager.search}">${i}</a></li>
+		    <li class="page-item"><a class="page-link" href="./list?page=${i}&search=${pager.search}&kind=${pager.kind}">${i}</a></li>
 		    </c:forEach>
 		   
 		   <c:if test="${!pager.last}"> 
 		    <li class="page-item">
-		      <a class="page-link" href="./list?page=${pager.lastNum+1}&search=${pager.search}" aria-label="Next">
+		      <a class="page-link" href="./list?page=${pager.lastNum+1}&search=${pager.search}&kind=${pager.kind}" aria-label="Next">
 		        <span aria-hidden="true">&raquo;</span>
 		      </a>
 		    </li>
