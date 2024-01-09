@@ -114,10 +114,11 @@ public class RegionController {
 	public ModelAndView list(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		
+		System.out.println("TotalPage :"+pager.getTotalPage());
 		List<RegionDTO> ar = regionService.getList(pager);
-		
+		System.out.println("TotalPage :"+pager.getTotalPage());
 		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		mv.setViewName("regions/list");
 		
 		//return "regions/list";

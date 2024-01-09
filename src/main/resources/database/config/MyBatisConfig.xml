@@ -9,7 +9,7 @@
   		<typeAlias type="com.winter.app.util.Pager" alias="Pager"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
-  	
+  		<typeAlias type="java.lang.Long" alias="Long"/>
   	</typeAliases>
   
   </configuration>

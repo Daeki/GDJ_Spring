@@ -32,6 +32,11 @@
 		SELECT REGION_ID, REGION_NAME FROM REGIONS WHERE REGION_ID=#{region_id}
 	</select>
 	
+	<!-- getTotal -->
+	<select id="getTotal" resultType="Long">
+		SELECT COUNT(REGION_ID) FROM REGIONS
+	</select>
+	
 	<!-- list -->
 	<select id="getList" resultType="RegionDTO" parameterType="Pager">
 		SELECT * FROM
