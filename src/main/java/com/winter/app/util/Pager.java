@@ -16,6 +16,10 @@ public class Pager {
 	//다음 블럭이 없으면 true;
 	private boolean last;
 	
+	//검색 관련
+	private String search;
+	private String kind;
+	
 	
 
 	//startRow, lastRow계산하는 메서드
@@ -79,6 +83,25 @@ public class Pager {
 
 
 
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		if(this.search == null) {
+			this.search="";
+		}
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
 
 	public void setStart(boolean start) {
 		this.start = start;
