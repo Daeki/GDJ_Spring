@@ -4,5 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 
+	<!-- file upload 관련 객체 생성 -->
+	<!-- 여러개의 조각들을 하나로 합치는 역할 -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 총 파일의 크기 제한 : 단위 Byte -->
+		<property name="maxUploadSize" value="10485760"></property>
+		<!-- 파일당 크기 제한 : 단위 Byte -->
+		<property name="maxUploadSizePerFile" value="2097152"></property>
+	</bean>
 		
 </beans>

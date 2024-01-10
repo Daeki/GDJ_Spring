@@ -26,10 +26,11 @@
 	</sql>
 	
 	<sql id="search2">
+		<bind name="p" value="'%'+_parameter.getSearch()+'%'"/>
 		<!-- TITLE, CONTENTS, WRITER -->
 		<where>
 		<if test="kind=='kind1' or kind=='kind4'">
-		TITLE LIKE '%'||#{search}||'%'
+		TITLE LIKE #{p}
 		</if>
 		
 		<if test="kind =='kind2' or kind=='kind4'">

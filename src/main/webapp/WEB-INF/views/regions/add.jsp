@@ -6,7 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<!--summer note-->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	
   </head>
 <body>
 <header>
@@ -46,24 +52,32 @@
     
     <section id="contents" class="container-fluid" >
     	<div class="row mt-4">
-			<form action="add" method="post">
-			  <div class="mb-3">
-			    <label for="regionId" class="form-label">RegionID</label>
-			    <input type="text" name="region_id" class="form-control" id="regionId" aria-describedby="emailHelp">
-			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-			  </div>
+			<form action="add" method="post" enctype="multipart/form-data">
+			  
 			  <div class="mb-3">
 			    <label for="regionName" class="form-label">RegionName</label>
 			    <input type="text" name="region_name" class="form-control" id="regionName">
+			  </div>
+
+			  <div class="mb-3">
+				<label for="regionContents" class="form-label">RegionContents</label>
+				<textarea id="regionContents" class="form-control" ></textarea>
+
+			  </div>
+
+			  <div class="mb-3">
+				<input type="file" name="photo">
 			  </div>
 
 			  <button type="submit" class="btn btn-primary">Add</button>
 			</form>    		
     	
     	</div>
-    
+	
     </section>
 
-
+	<script>
+		$('#regionContents').summernote()
+	</script>
 </body>
 </html>
