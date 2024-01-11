@@ -38,9 +38,9 @@ public class RegionService {
 		int result =regionDAO.delete(regionDTO);
 		
 		//경로 생성
-		String path=servletContext.getRealPath("/resources/upload/regions/");
 		
 		for(RegionFileDTO f:ar) {
+			String path=servletContext.getRealPath("/resources/upload/regions/");
 			path=path+f.getFileName();
 			//HDD에서 삭제
 			fileManager.fileDelete(path);
