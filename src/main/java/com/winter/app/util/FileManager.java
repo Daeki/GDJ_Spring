@@ -14,12 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
-	
-	
-	public void fileSave(String path, MultipartFile file)throws Exception{
-		File f = new File("/resources/upload");		
+	public String fileSave(String path, MultipartFile file)throws Exception{
+		System.out.println(path);
+		//path : realpath
+		File f = new File(path);		
 		
-		f= new File(f, path);
 		
 		if(f.isFile()) {
 			throw new Exception();
@@ -39,10 +38,16 @@ public class FileManager {
 		fileName=UUID.randomUUID().toString()+"_"+file.getOriginalFilename();
 		System.out.println(fileName);
 		
+		f= new File(f, fileName);
 		//3. 파일을 저장
 		//a. FileCopyUtils 클래스 사용
-		f= new File(f, fileName);
-		FileCopyUtils.copy(file.getBytes(), f);
+		//FileCopyUtils.copy(file.getBytes(), f);
+		
+		//b. MultipartFile의 transferTo 메서드 사용
+		file.transferTo(f);
+		
+		
+		return fileName;
 		
 	}
 

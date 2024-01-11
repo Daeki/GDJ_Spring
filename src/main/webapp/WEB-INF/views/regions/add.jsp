@@ -75,8 +75,6 @@
 
 			  <div class="mb-3">
 				<input type="file" name="photo">
-				<input type="file" name="photo">
-				<input type="file" name="photo">
 			  </div>
 
 			  <button type="submit" class="btn btn-primary">Add</button>

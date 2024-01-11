@@ -45,9 +45,9 @@ public class RegionService {
 		
 		int result =regionDAO.add(regionDTO);
 		//1. 어디에 저장할 것인가??
-		String path = servletContext.getRealPath("/resources/upload");
+		String path = servletContext.getRealPath("/resources/upload/regions");
 		
-		
+		String fileName = fileManager.fileSave(path, file);
 		
 
 		
@@ -63,6 +63,7 @@ public class RegionService {
 	
 	//detail
 	public RegionDTO getDetail(RegionDTO regionDTO)throws Exception{
+		
 		return regionDAO.getDetail(regionDTO);
 	}
 	
