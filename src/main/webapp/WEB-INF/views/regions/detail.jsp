@@ -19,7 +19,9 @@
     		<div>${dto.region_name}</div>
     		<div>
     			<h2>FILE</h2>
-    			<a href="/resources/upload/regions/${dto.regionFileDTO.fileName}">${dto.regionFileDTO.oriName}</a>
+    			<c:forEach items="${dto.regionFileDTOs}" var="f">
+    			<a href="/resources/upload/regions/${f.fileName}">${f.oriName}</a>
+    			</c:forEach>
     		</div>
     		
     		<a href="">Update</a>

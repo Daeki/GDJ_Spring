@@ -98,13 +98,26 @@
 		<!-- PK를 제외한 나머지 -->
 		<result column="REGION_NAME" property="region_name"/>
 		<!-- 1:1 -->
-		<association property="regionFileDTO" javaType="RegionFileDTO">
-			<!-- PK -->
+		<!-- <association property="regionFileDTO" javaType="RegionFileDTO">
+			PK
 			<id column="FILENUM" property="fileNum"/>
 			<result column="FILENAME" property="fileName"/>
 			<result column="ORINAME" property="oriName"/>
-		</association>
+		</association> -->
+		<!-- 1:N -->
+		<collection property="regionFileDTOs" javaType="List" ofType="RegionFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+			<result column="ORINAME" property="oriName"/>
+		</collection>
+		
 	</resultMap>
+	
+	<!-- File List 1:N -->
+	<select id="getListFiles" resultType="RegionFileDTO" parameterType="RegionDTO">
+		SELECT * FROM REGIONFILES
+		WHERE REGION_ID=#{region_id}
+	</select>
 	
 	<!-- getTotal -->
 	<select id="getTotal" resultType="Long" parameterType="Pager">
