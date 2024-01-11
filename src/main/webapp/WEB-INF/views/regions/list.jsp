@@ -86,6 +86,8 @@
 		</nav>
 	</div>
 	
+
+	
 	<a href="add" class="btn btn-success">Add</a>
 	
 	<c:import url="../temps/bootStrap_js.jsp"></c:import>

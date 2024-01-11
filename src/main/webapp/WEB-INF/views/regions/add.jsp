@@ -65,7 +65,17 @@
 
 			  </div>
 
+			  <div>
+				<input type="checkbox" name="ch" value="1">
+				<input type="checkbox" name="ch" value="2">
+				<input type="checkbox" name="ch" value="3">
+				<input type="checkbox" name="ch" value="4">
+
+			  </div>
+
 			  <div class="mb-3">
+				<input type="file" name="photo">
+				<input type="file" name="photo">
 				<input type="file" name="photo">
 			  </div>
 

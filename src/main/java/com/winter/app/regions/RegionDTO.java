@@ -5,13 +5,13 @@ public class RegionDTO {
 	//2. 모든 멤버변수의 getter/setter 생성
 	//3. 생성자는 여러개 가능하지만, 기본생성자는 필수
 	//4. 멤버변수의 이름과 Datatype은 DB의 Table의 컬럼명과 Datatype 일치
-	private int region_id;
+	private Long region_id;
 	private String region_name;
 	
-	public int getRegion_id() {
+	public Long getRegion_id() {
 		return region_id;
 	}
-	public void setRegion_id(int region_id) {
+	public void setRegion_id(Long region_id) {
 		this.region_id = region_id;
 	}
 	public String getRegion_name() {
